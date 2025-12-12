@@ -2,9 +2,33 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
+import { Pool } from "pg";
+import "dotenv/config.js";
 
 const app = express();
 const httpServer = createServer(app);
+
+export let pg: Pool;
+
+function initializeDatabasePool() {
+  const user: string = process.env.POSTGRES_USER || "";
+  const password: string = process.env.POSTGRES_PASSWORD || "";
+  const host: string = process.env.POSTGRES_HOST || "";
+  const port: number = process.env.POSTGRES_PORT ? parseInt(process.env.POSTGRES_PORT) : 0;
+  const database: string = process.env.POSTGRES_DB || "";
+  if (!user && !password && !host && !port && !database) {
+    log("POSTGRES_URL is UNDEFINED. Check your .env file and loading order.", "postgresql")
+    return false;
+  }
+  pg = new Pool({
+    user,
+    password,
+    host,
+    port,
+    database
+  });
+  return true;
+}
 
 declare module "http" {
   interface IncomingMessage {
@@ -19,7 +43,6 @@ app.use(
     },
   }),
 );
-
 app.use(express.urlencoded({ extended: false }));
 
 export function log(message: string, source = "express") {
@@ -39,11 +62,13 @@ app.use((req, res, next) => {
   let capturedJsonResponse: Record<string, any> | undefined = undefined;
 
   const originalResJson = res.json;
+  let response;
   res.json = function (bodyJson, ...args) {
     capturedJsonResponse = bodyJson;
+    response = JSON.stringify(capturedJsonResponse); 
+    response = response.length > 255 ? "[Redacted Long Response]" : response;
     return originalResJson.apply(res, [bodyJson, ...args]);
   };
-
   res.on("finish", () => {
     const duration = Date.now() - start;
     if (path.startsWith("/api")) {
@@ -52,7 +77,7 @@ app.use((req, res, next) => {
         logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
       }
 
-      log(logLine);
+      log(logLine, "api");
     }
   });
 
@@ -61,7 +86,10 @@ app.use((req, res, next) => {
 
 (async () => {
   await registerRoutes(httpServer, app);
-
+  if (!await initializeDatabasePool()) {
+    log("Fatal error initializing database pool. Aborting.", "expressjs");
+    return;
+  }
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
     const status = err.status || err.statusCode || 500;
     const message = err.message || "Internal Server Error";
@@ -85,11 +113,11 @@ app.use((req, res, next) => {
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
   const port = parseInt(process.env.PORT || "5000", 10);
+  const host = process.env.HOST || "localhost";
   httpServer.listen(
     {
       port,
-      host: "0.0.0.0",
-      reusePort: true,
+      host
     },
     () => {
       log(`serving on port ${port}`);

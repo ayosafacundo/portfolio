@@ -1,0 +1,1 @@
+export const insertNewContact = `INSERT INTO user_data.messages (full_name, email, msg) VALUES ($1, $2, $3)`;

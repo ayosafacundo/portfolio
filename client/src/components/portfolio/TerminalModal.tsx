@@ -2,17 +2,18 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Terminal, Minus, Square } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Education, Project, Certificate, Experience } from "@/types/datatypes";
+import TerminalProjects from "./TerminalModals/TerminalProjects";
+import TerminalExperiences from "./TerminalModals/TerminalExperiences";
+import TerminalCertificates from "./TerminalModals/TerminalCertificates";
+import TerminalEducation from "./TerminalModals/TerminalEducation";
 
 interface TerminalModalProps {
   isOpen: boolean;
   onClose: () => void;
-  project: {
-    title: string;
-    longDesc: string;
-    tech: string[];
-    ascii: string;
-    color: string;
-  } | null;
+  firstOpen: boolean;
+  project: Project | Experience | Education | Certificate | null;
+  type: string;
 }
 
 const BOOT_SEQUENCE = [
@@ -29,24 +30,23 @@ const BOOT_SEQUENCE = [
   "Welcome to DevEvolution OS v2.0"
 ];
 
-export default function TerminalModal({ isOpen, onClose, project }: TerminalModalProps) {
+export default function TerminalModal({ isOpen, onClose, firstOpen, type, project }: TerminalModalProps) {
+  const terminalBodyRef = useRef<HTMLDivElement>(null);
+  const [showContent, setShowContent] = useState(!firstOpen);
   const [bootLines, setBootLines] = useState<string[]>([]);
   const [bootComplete, setBootComplete] = useState(false);
-  const [showContent, setShowContent] = useState(false);
-  const terminalBodyRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    if (isOpen && project) {
+    if (firstOpen && isOpen && project) {
       setBootLines([]);
       setBootComplete(false);
       setShowContent(false);
 
       let lineIndex = 0;
       const interval = setInterval(() => {
-        if (lineIndex < BOOT_SEQUENCE.length) {
+        if (lineIndex < BOOT_SEQUENCE.length - 1) {
           setBootLines(prev => [...prev, `[ OK ] ${BOOT_SEQUENCE[lineIndex]}`]);
           lineIndex++;
-          
+
           if (terminalBodyRef.current) {
             terminalBodyRef.current.scrollTop = terminalBodyRef.current.scrollHeight;
           }
@@ -54,17 +54,40 @@ export default function TerminalModal({ isOpen, onClose, project }: TerminalModa
           clearInterval(interval);
           setTimeout(() => {
             setBootComplete(true);
-            setTimeout(() => setShowContent(true), 500);
+            setTimeout(() => setShowContent(true), 800);
           }, 800);
         }
-      }, 150);
+      }, 200);
 
       return () => clearInterval(interval);
     }
   }, [isOpen, project]);
-
   if (!isOpen || !project) return null;
 
+  let terminal = null;
+  let name;
+
+  switch (type) {
+    case "project":
+      terminal = <TerminalProjects project={project as Project} />
+      name = (project as Project).name
+      break;
+    case "experience":
+      terminal = (<TerminalExperiences project={project as Experience} />)
+      name = (project as Experience).title
+      break;
+    case "education":
+      terminal = (<TerminalEducation project={project as Education} />)
+      name = (project as Education).title
+      break;
+    case "certification":
+      terminal = (<TerminalCertificates project={project as Certificate} />)
+      name = (project as Certificate).title
+      break;
+    default:
+      return null;
+  }
+  project.base_color = project.base_color ? project.base_color : "hsl(190, 100%, 50%)";
   return (
     <AnimatePresence>
       <motion.div
@@ -85,7 +108,7 @@ export default function TerminalModal({ isOpen, onClose, project }: TerminalModa
           <div className="bg-[#1a1a1a] px-4 py-2 flex items-center justify-between border-b border-white/10 select-none">
             <div className="flex items-center gap-2 text-white/60 text-xs font-mono">
               <Terminal size={14} />
-              <span>root@devevolution:~/{project.title.toLowerCase().replace(/\s+/g, '-')}</span>
+              <span>root@devevolution:~/{name!.toLowerCase().replace(/\s+/g, '-')}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="p-1 hover:bg-white/10 rounded cursor-pointer"><Minus size={14} className="text-white/60" /></div>
@@ -95,7 +118,7 @@ export default function TerminalModal({ isOpen, onClose, project }: TerminalModa
           </div>
 
           {/* Terminal Body */}
-          <div 
+          <div
             ref={terminalBodyRef}
             className="p-6 font-mono text-sm md:text-base text-white/80 overflow-y-auto custom-scrollbar flex-1 bg-black/90"
             style={{ fontFamily: "'VT323', monospace" }}
@@ -111,51 +134,8 @@ export default function TerminalModal({ isOpen, onClose, project }: TerminalModa
                 )}
               </div>
             )}
-
             {/* Project Content */}
-            {showContent && (
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="space-y-6"
-              >
-                <div className="flex flex-col md:flex-row gap-8">
-                  {/* ASCII Art */}
-                  <div className="text-xs md:text-sm leading-none whitespace-pre text-center md:text-left select-none" style={{ color: project.color }}>
-                    {project.ascii}
-                  </div>
-
-                  <div className="flex-1 space-y-4">
-                    <div>
-                      <h2 className="text-2xl font-bold text-white mb-1" style={{ textShadow: `0 0 10px ${project.color}` }}>
-                        {project.title}
-                      </h2>
-                      <div className="h-px w-full bg-gradient-to-r from-white/30 to-transparent" />
-                    </div>
-
-                    <p className="leading-relaxed text-lg">
-                      {project.longDesc}
-                    </p>
-
-                    <div>
-                      <div className="text-xs text-white/40 mb-2 uppercase tracking-widest">Technologies</div>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tech.map((t: string) => (
-                          <span key={t} className="px-2 py-1 bg-white/10 text-white/80 text-xs rounded border border-white/5">
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Simulated Command Input */}
-                <div className="mt-8 pt-4 border-t border-white/10 text-white/60">
-                  <span className="text-green-500">root@devevolution</span>:<span className="text-blue-500">~</span>$ <span className="animate-pulse">_</span>
-                </div>
-              </motion.div>
-            )}
+            {showContent && (terminal)}
           </div>
         </motion.div>
       </motion.div>

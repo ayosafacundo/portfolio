@@ -1,4 +1,4 @@
-import { Monitor, Gamepad2, MessageCircle, Phone, Headphones, Star, Terminal, AppWindow, User, Code, Mail, Download } from "lucide-react";
+import { MessageCircle, Headphones, Terminal, AppWindow } from "lucide-react";
 
 export const TIMELINE_ERAS = [
   {
@@ -18,43 +18,11 @@ export const TIMELINE_ERAS = [
     font: "font-sans"
   },
   {
-    id: "pong",
-    label: "Pong",
-    customIcon: "pong",
-    color: "#ffffff",
-    bg: "#000000",
-    font: "font-mono"
-  },
-  {
-    id: "arcade",
-    label: "Arcade Era",
-    icon: Gamepad2,
-    color: "#ff00ff", // Neon Pink
-    bg: "#1a1a1a",
-    font: "font-display"
-  },
-  {
-    id: "microsoft",
-    label: "Early Microsoft",
-    customIcon: "windows",
-    color: "#00a4ef",
-    bg: "#ffffff",
-    font: "font-sans"
-  },
-  {
     id: "messenger",
     label: "Messenger",
     icon: MessageCircle,
     color: "#0084ff", // Messenger Blue
     bg: "#e6f2ff",
-    font: "font-sans"
-  },
-  {
-    id: "skype",
-    label: "Skype",
-    icon: Phone,
-    color: "#00aff0", // Skype Blue
-    bg: "#ffffff",
     font: "font-sans"
   },
   {

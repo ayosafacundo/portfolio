@@ -1,0 +1,414 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "started_at": "2024-12-09T03:00:00.000Z",
+      "name": "AyoLab",
+      "short_desc": "Small personal homelab setup to test projects, containers, and get hands-on experience on real-world setups.",
+      "long_desc": "Personal homelab setup where I setted up various projects like my own cloud Network-Attached Storage with protection, routing, custom firewall settings, custom domain and great availability, my own web hosting setup with CI/CD Pipelines using OneDev Git capabilities and Dockerized containers, NginX to reverse proxy the websites to a public-facing domain, n8n to streamline automations, updates and backups, and crafty-controller to host personal minecraft servers with ZeroTier to manage a closed LAN with my friends",
+      "tag_id": 1,
+      "url": null,
+      "base_color": null,
+      "status": "Ongoing",
+      "ascii_art": " __°___O   °\n|\\ |\\_/-\\_/|\n| \\\\+__+__+/\n|\\ |___|___|\n| \\|___|___|\n|  |       |\n|  |AYO_LAB|\n|  |       |\n \\ |   O   |\n  \\|_______|",
+      "end_at": null,
+      "tags_array": [
+        [
+          "Linux",
+          "#263238"
+        ],
+        [
+          "Docker",
+          "#2395EC"
+        ],
+        [
+          "Postgresql",
+          "#0277BD"
+        ],
+        [
+          "Bash",
+          "#444445"
+        ],
+        [
+          "Automation",
+          "#DF20CC"
+        ],
+        [
+          "Project Management",
+          "#DF206C"
+        ],
+        [
+          "IT Support",
+          "#20DF93"
+        ],
+        [
+          "Networking",
+          "#9320DF"
+        ],
+        [
+          "Problem-solving",
+          "#2BD4D1"
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "started_at": "2025-12-09T03:00:00.000Z",
+      "name": "Portfolio",
+      "short_desc": "Full fledged personal portfolio with animations and simulations hosted on my own homelab",
+      "long_desc": "Portfolio prototyped using Replit design AI and polished with postgresql connection, website optimization, and more. ",
+      "tag_id": 2,
+      "url": "https://ayosafacundo.com.ar",
+      "base_color": "#C822FF",
+      "status": "Ongoing",
+      "ascii_art": " __.=./\\ / \\ /\\.=.__\n(-.'-;  |   |  ;-'.-)\n   \\ `\\/     \\/` /\n    ;  `\\   /`  ;\n    |    | |    |\n    ;,\"-.-\"-.-\",;\n     \\\\/^\\ /^\\//\n      \\   `   /\n       ',___,'\n        \\\\V//\n         |||\n         |||\n         |||",
+      "end_at": null,
+      "tags_array": [
+        [
+          "Vite",
+          "#9575CD"
+        ],
+        [
+          "React",
+          "#53C1DE"
+        ],
+        [
+          "Expressjs",
+          "#000000"
+        ],
+        [
+          "npm",
+          "#D50000"
+        ],
+        [
+          "TypeScript",
+          "#1976D2"
+        ],
+        [
+          "JavaScript",
+          "#FFD600"
+        ],
+        [
+          "Linux",
+          "#263238"
+        ],
+        [
+          "Docker",
+          "#2395EC"
+        ],
+        [
+          "Postgresql",
+          "#0277BD"
+        ],
+        [
+          "Problem-solving",
+          "#2BD4D1"
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "started_at": "2025-09-29T03:00:00.000Z",
+      "name": "Red Thread",
+      "short_desc": "World Building native app focused on bringing writers, dungeon masters and story researchers a toolset to help them write their story, characters, and entire worlds with.",
+      "long_desc": "Focused on optimized performance and offering a wide range of tools, this native app aims to be the toolbox to bring life to your ideas. Being able to link events, characters and places visually will help you keep track of everything in the story.",
+      "tag_id": 3,
+      "url": "https://git.ayosafacundo.com.ar/red_thread",
+      "base_color": "#D51031",
+      "status": "Stalled",
+      "ascii_art": "              @@@@@@@@@@@@\n              @@  .%.@: @@\n              @@  @    @@@\n              @@ %      @@@\n              %@ @      @@  @*\n              \\%@@@@@@@@@@    *%\n               :#               :@.\n               @                   @@\n              //              _=@@%%%%%%%%@\n              @         _@@@-- @@         @\n             @   _.@@@.-       @@         @\n            .@@*:              @@         @\n       @@@@@@@@@@@@            %@         @\n       @@        %@            \\%@@@@@@@@@@\n       @@        %@\n       @@        %@\n       %@        %@\n       \\%@@@@@@@@@@",
+      "end_at": null,
+      "tags_array": [
+        [
+          "C/C++",
+          "#0075C0"
+        ],
+        [
+          "Project Management",
+          "#DF206C"
+        ],
+        [
+          "Problem-solving",
+          "#2BD4D1"
+        ],
+        [
+          "IT Support",
+          "#20DF93"
+        ]
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "category": "Backend",
+      "tags_array": [
+        "Nextjs",
+        "C/C++",
+        "Node.js / Deno"
+      ]
+    },
+    {
+      "category": "DevOps",
+      "tags_array": [
+        "Azure",
+        "Docker",
+        "CI/CD",
+        "Linux"
+      ]
+    },
+    {
+      "category": "Frontend",
+      "tags_array": [
+        "Tailwind",
+        "React",
+        "Vite",
+        "Typescript"
+      ]
+    },
+    {
+      "category": "Tools",
+      "tags_array": [
+        "Git",
+        "N8N",
+        "Proxmox",
+        "Linux Containers (LXC)"
+      ]
+    }
+  ],
+  "experiences": [
+    {
+      "id": 1,
+      "started_at": "2023-11-01T03:00:00.000Z",
+      "stopped_at": "2025-02-28T03:00:00.000Z",
+      "title": "Software Developer & Part-time Teacher",
+      "job_type": "Full Time",
+      "short_desc": "Software Developer in charge of developping and maintaining their content management platforms and part-time teacher for high school students, teaching side by side with Ivy League graduates.",
+      "long_desc": "Instructed Python, Java and Javascript alongside Ivy League graduates to High-School and University\nstudents. Beginner to Advanced classes.\nDeveloped and Mantained the infraestructure that allowed the company to keep a record of every\nstudent's progress and keep in touch with their respective parents at no aditional cost to the company.\nHosted the database were we kept the student's records in a secure way that allowed fast access for\nparents and editing permissions for teachers.",
+      "company": "355Code",
+      "company_url": "https://www.355code.com/",
+      "job_modality": "Remote",
+      "tags": 1,
+      "tags_array": [
+        [
+          "Java",
+          "#1565C0"
+        ],
+        [
+          "JavaScript",
+          "#FFD600"
+        ],
+        [
+          "Python",
+          "#FFC107"
+        ],
+        [
+          "HTML",
+          "#E65100"
+        ],
+        [
+          "CSS",
+          "#2AA4F4"
+        ],
+        [
+          "Automation",
+          "#DF20CC"
+        ],
+        [
+          "IT Support",
+          "#20DF93"
+        ],
+        [
+          "Teaching",
+          "#D47D2B"
+        ],
+        [
+          "Problem-solving",
+          "#2BD4D1"
+        ],
+        [
+          "English",
+          "#368D2E"
+        ],
+        [
+          "Cloud Data",
+          "#3CCBF4"
+        ],
+        [
+          "Cloud Security",
+          "#3CCBF4"
+        ],
+        [
+          "Cloud Services",
+          "#3CCBF4"
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "started_at": "2025-02-01T03:00:00.000Z",
+      "stopped_at": "2025-11-30T03:00:00.000Z",
+      "title": "Digital Success Manager",
+      "job_type": "Contract",
+      "short_desc": "Digital Success Manager for an Artificial Intelligence education program aimed at underserved youth around the world.",
+      "long_desc": "Proactively developed automations to mainstream processes in order to improve speed and reduce\ndowntime to a minimum, without extra costs to the company.\nSpearheaded the digital success and operational efficiency of Junior Achievement's programs utilizing\nthe IBM SkillsBuild platform.\nProvided comprehensive 24/7 IT support, directly troubleshooting platform usage errors for Project\nManagers and other teams, resulting in reduced downtime and improved user understanding.\nInstrumental in optimizing program engagement and providing accurate reporting on student\nparticipation and progress.\nSuccessfully launched and supported an Artificial Intelligence education program for underserved youth,\ntraining project managers, managing inter-regional communications with IBM, and implementing\nautomations to streamline key platform processes.",
+      "company": "Junior Achievement Americas",
+      "company_url": "https://jaamericas.org/",
+      "job_modality": "Remote",
+      "tags": 2,
+      "tags_array": [
+        [
+          "Python",
+          "#FFC107"
+        ],
+        [
+          "Automation",
+          "#DF20CC"
+        ],
+        [
+          "Project Management",
+          "#DF206C"
+        ],
+        [
+          "IT Support",
+          "#20DF93"
+        ],
+        [
+          "Power Automate",
+          "#4D9FFF"
+        ],
+        [
+          "Problem-solving",
+          "#2BD4D1"
+        ],
+        [
+          "English",
+          "#368D2E"
+        ]
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "ended_at": "2028-12-31",
+      "title": "Bachelor's Degree in Computer Science",
+      "status": "In Progress",
+      "university": "Siglo 21",
+      "university_url": "https://www.21.edu.ar",
+      "tags": 1,
+      "description": "A Bachelor of Science (B.S.) in Computer Science focused on developing a strong theoretical foundation and practical skills across the entire computing spectrum. This rigorous curriculum emphasized problem-solving, algorithmic thinking, and the design and analysis of complex software systems.",
+      "tags_array": [
+        [
+          "Java",
+          "#1565C0"
+        ],
+        [
+          "C/C++",
+          "#0075C0"
+        ],
+        [
+          "Postgresql",
+          "#0277BD"
+        ],
+        [
+          "Networking",
+          "#9320DF"
+        ],
+        [
+          "Problem-solving",
+          "#2BD4D1"
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "ended_at": "2023-09-30",
+      "title": "Azure Fundamentals",
+      "status": "Graduated",
+      "university": "Microsoft",
+      "university_url": "https://www.credly.com/badges/02af65bc-0ef0-4ef4-8521-8a5163b6125f/linked_in_profile",
+      "tags": 2,
+      "description": "Successfully attained the Microsoft Certified: Azure Fundamentals (AZ-900) certification, demonstrating foundational knowledge of cloud services and how Microsoft Azure provides these services.",
+      "tags_array": [
+        [
+          "Azure",
+          "#3CCBF4"
+        ],
+        [
+          "Cloud Data",
+          "#3CCBF4"
+        ],
+        [
+          "Cloud Networking",
+          "#3CCBF4"
+        ],
+        [
+          "Cloud Security",
+          "#3CCBF4"
+        ],
+        [
+          "Cloud Services",
+          "#3CCBF4"
+        ],
+        [
+          "Cloud Storage",
+          "#3CCBF4"
+        ],
+        [
+          "Virtualization",
+          "#3CCBF4"
+        ]
+      ]
+    }
+  ],
+  "certificates": [
+    {
+      "id": 1,
+      "graduation_date": "2023-05-16",
+      "title": "Typescript: Tu completa guía y manual de mano.",
+      "company": "Udemy",
+      "tags": 1,
+      "description": "Full Typescript guide, with advanced type definitions.",
+      "certificate_url": "https://www.udemy.com/certificate/UC-a179c7a8-5a57-4b8b-a1ca-7d1a5703d507/",
+      "ascii_art": "        .-*:.\n     .********+.\n  .***************.\n  ******.   .*****=\n  **=.         .+*=\n                   \n                   \n  @@@@@       @@@@*\n  @@@@@       @@@@*\n  @@@@@       @@@@*\n  @@@@@       @@@@*\n  @@@@@       @@@@*\n  @@@@@       @@@@*\n  %@@@@.     .@@@@=\n  .@@@@@.. .:@@@@@.\n   .@@@@@@@@@@@@@.\n     .+@@@@@@@:.\n",
+      "tags_array": [
+        [
+          "JavaScript",
+          "#FFD600"
+        ],
+        [
+          "TypeScript",
+          "#1976D2"
+        ],
+        [
+          "Vite",
+          "#9575CD"
+        ],
+        [
+          "React",
+          "#53C1DE"
+        ],
+        [
+          "Expressjs",
+          "#000000"
+        ],
+        [
+          "npm",
+          "#D50000"
+        ]
+      ]
+    }
+  ],
+  "about": [
+    {
+      "id": 1,
+      "about_me": "Highly motivated professional with a dedication to continuous improvement. Leverage strong analytical\nskills and clear communication to deliver impactful results, consistently exceeding expectations and meeting\ndeadlines.",
+      "email": "ayosafacundo@gmail.com",
+      "phone": "+54 9 11 6457-9559",
+      "LinkedIn_URL": "https://www.linkedin.com/in/ayosafacundo/",
+      "Github_URL": "https://github.com/ayosafacundo",
+      "Created_Date": "2025-12-09T23:25:42.377Z",
+      "OneDev_URL": "https://git.ayosafacundo.com.ar"
+    }
+  ]
+}
