@@ -1,16 +1,16 @@
 import { sqlResponse } from '@/types/datatypes';
 import { useState, useEffect } from 'react';
 
-const backendUrl = 'https://ayosafacundo.com.ar';
+const backendUrl = "https://ayosafacundo.com.ar/api";
 
-function DataFetcher() {
+function DataFetcher() { 
   const [data, setData] = useState<sqlResponse | null>(null);
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${backendUrl}/api/data`);
+        const response = await fetch(`${backendUrl}/data`);
         if (!response.ok) {
           setError(new Error(`HTTP error! status: ${response.status}`));
         }
@@ -45,7 +45,7 @@ async function sendContactForm(name: string, email:string, message:string) {
   try {
     // 3. Use the fetch API to send the POST request
     console.log({data, a: JSON.stringify(data)})
-    const response = await fetch(`${backendUrl}/api/contact`, {
+    const response = await fetch(`${backendUrl}/contact`, {
       method: 'POST', // Specify the method
       headers: {
         // Tell the server we are sending JSON data

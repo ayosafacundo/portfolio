@@ -18,7 +18,7 @@ const ProjectCard = ({ project, onClick }: {project: Project, onClick: ()=>void}
     
     <div className="flex justify-between items-start mb-4">
       <h3 className="text-2xl font-bold text-white font-display">{project.name}</h3>
-      <ExternalLink className="text-white/40 group-hover:text-white transition-colors" size={20} />
+      {project.url && <ExternalLink className="text-white/40 group-hover:text-white transition-colors" size={20} onClick={() => window.open(project.url, "_blank")}/>}
     </div>
     
     {project.short_desc && <div className="text-base font-mono text-white/60 mb-4">{project.status}</div>}
