@@ -2,34 +2,20 @@ services:
   portfolio:
     build:
       context: .
-      dockerfile: Dockerfile.dev
-    volumes:
-      - ./:/usr/src/app
-      - node_modules:/usr/src/app/node_modules
+      dockerfile: Dockerfile.production
     ports:
       - 80:5000
     container_name: portfolio
     restart: unless-stopped
-    command: npm run dev
+    command: npm run start
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=production
       - HOST=0.0.0.0
       - PORT=5000
-      - POSTGRES_USER=testuser
-      - POSTGRES_PASSWORD=testpassword
-      - POSTGRES_DB=portfolio
-      - POSTGRES_PORT=5432
-      - POSTGRES_HOST=db
-
-  db:
-    image: postgres:18-alpine
-    volumes:
-      - database:/var/lib/postgresql
-    environment:
-      - POSTGRES_USER=testuser
-      - POSTGRES_PASSWORD=testpassword
-      - POSTGRES_DB=testing
-      - POSTGRES_PORT=5432  
-volumes:
-    database:
-    node_modules:
+      - POSTGRES_USER=$POSTGRES_USER 
+      - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+      - POSTGRES_DB=$POSTGRES_DB
+      - POSTGRES_PORT=$POSTGRES_PORT
+      - POSTGRES_HOST=$POSTGRES_HOST
+      - POSTGRES_URL=$POSTGRES_URL
+      - GOTIFY_TOKEN=$GOTIFY_TOKEN
