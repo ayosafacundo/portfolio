@@ -25,6 +25,7 @@ jobs:
         uses: docker/build-push-action@v6.18.0
         with:
           context: .
+          file: ./Dockerfile.production
           push: true
           tags: ${{ secrets.DOCKER_USER }}/portfolio:production
 
