@@ -25,7 +25,17 @@ function initializeDatabasePool() {
     password,
     host,
     port,
-    database
+    database,
+    max: 10,
+    idleTimeoutMillis: 30000,
+    connectionTimeoutMillis: 5000,
+    keepAlive: true,
+    keepAliveInitialDelayMillis: 30000
+  });
+  pg.on("error", (err: Error) => {
+    log("Unexpected error on idle PostgreSQL client: " + err, "postgresql");
+    console.error(err);
+    return false;
   });
   return true;
 }
@@ -72,6 +82,24 @@ app.use((req, res, next) => {
   });
 
   next();
+});
+
+setInterval(async () => {
+  try {
+    const client = await pg.connect();
+    client.release();
+    const time = Date.now().toLocaleString();
+    log("PostgreSQL connection is healthy.", "postgresql");
+  } catch (err) {
+    log("Error checking PostgreSQL connection: " + err, "postgresql");
+    
+  }
+}, 5 * 60 * 1000); // every 5 minutes
+
+process.on("SIGTERM", async () => {
+  console.log("Shutting down...");
+  await pg.end();
+  process.exit(0);
 });
 
 (async () => {

@@ -49,6 +49,7 @@ const getEverything = async (request: Request, response: Response) => {
     console.error(e);
     response.status(500).json({ error: "Failed to fetch data from database." });
   }
+  client.release();
 }
 
 const postMessage = async (request: Request, response: Response) => {

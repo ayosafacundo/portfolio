@@ -1,6 +1,14 @@
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import CV from "@/public/Ayosa Facundo.pdf";
+
+function downloadCV() {
+  const link = document.createElement("a");
+  link.href = CV;
+  link.download = "Ayosa Facundo.pdf";
+  link.click();
+}
 
 const Nav = () => (
   <motion.nav 
@@ -12,7 +20,7 @@ const Nav = () => (
     <div className="font-mono font-bold text-xl pointer-events-auto cursor-pointer hover:opacity-70 transition-opacity">DEV.EVOLUTION</div>
     <div className="flex gap-6 pointer-events-auto">
       <a href="#contact" className="hover:underline underline-offset-4 font-mono hidden md:block">CONTACT</a>
-      <Button variant="outline" size="sm" className="rounded-full font-mono border-white/30 hover:bg-white hover:text-black transition-colors">
+      <Button variant="outline" size="sm" className="rounded-full font-mono border-white/30 hover:bg-white hover:text-black transition-colors" onClick={downloadCV}>
         <Download size={14} className="mr-2" /> CV
       </Button>
     </div>
