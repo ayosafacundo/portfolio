@@ -13,7 +13,10 @@ COPY --from=builder /app/dist ./
 COPY ./package*.json ./
 RUN npm prune --production
 
+<<<<<<< HEAD
 COPY .env .
+=======
+>>>>>>> effa933 (optimization: Docker container size reduced from +750MB to ~250MB.)
 EXPOSE 5000
 
 CMD ["node", "index.cjs"]
