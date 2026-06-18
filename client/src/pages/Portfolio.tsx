@@ -139,15 +139,15 @@ export default function Portfolio({PORTFOLIO_DATA}:{ PORTFOLIO_DATA: sqlResponse
               <div className="grid gap-4">
                   <div className="bg-white/5 border border-white/10 p-4 rounded-lg flex justify-between items-center">
                      <span className="font-mono text-white/60">Final grade point average</span>
-                     <span className="font-display text-2xl font-bold text-white">7.90/10</span>
+                     <span className="font-display text-2xl font-bold text-white">7.97/10</span>
                   </div>
                   <div className="bg-white/5 border border-white/10 p-4 rounded-lg flex justify-between items-center">
                      <span className="font-mono text-white/60">Times I broke Linux</span>
-                     <span className="font-display text-2xl font-bold text-white">12</span>
+                     <span className="font-display text-2xl font-bold text-white">14</span>
                   </div>
                   <div className="bg-white/5 border border-white/10 p-4 rounded-lg flex justify-between items-center">
                      <span className="font-mono text-white/60">LXCs currently in use in Proxmox</span>
-                     <span className="font-display text-2xl font-bold text-white">10</span>
+                     <span className="font-display text-2xl font-bold text-white">16</span>
                   </div>
               </div>
            </div>
